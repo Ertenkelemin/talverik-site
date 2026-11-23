@@ -99,16 +99,24 @@ footer p { margin: 0; }
 
 /* Tablets and phones */
 @media (max-width: 56rem) {
+  /* Tablets: text and a smaller iPhone side by side. */
+  .hero-grid { grid-template-columns: 1.4fr .6fr; gap: 1.5rem; }
+  .hero-phone { width: min(100%, 14rem); }
+  .feature-grid { grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: 2rem; }
+  .feature:nth-of-type(odd) .feature-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 14rem); }
+  .facts { grid-template-columns: 1fr; }
+}
+/* Phones: no room beside the headline; the iPhone sits below it, smaller. */
+@media (max-width: 37.5rem) {
   .hero-grid { grid-template-columns: 1fr; text-align: center; }
   .lead { margin-inline: auto; }
   .chips, .cta { justify-content: center; }
-  .hero-phone { width: min(72%, 17rem); margin-top: .5rem; }
+  .hero-phone { width: min(58%, 13rem); }
   .feature-grid, .feature:nth-of-type(odd) .feature-grid { grid-template-columns: 1fr; text-align: center; }
   .feature:nth-of-type(odd) .device { order: 0; }
-  .feature .device { width: min(72%, 17rem); }
+  .feature .device { width: min(58%, 13rem); }
   .feature p { margin-inline: auto; }
   .points { width: fit-content; margin-inline: auto; text-align: left; }
-  .facts { grid-template-columns: 1fr; }
 }
 @media (max-width: 26rem) {
   nav a { padding: .4rem .6rem; }
